@@ -6,7 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="common-module" />
+        <module name="build-tools" />
+        <module name="common-utils" />
+        <module name="common-dto" />
+        <module name="common-services" />
       </profile>
     </annotationProcessing>
   </component>
