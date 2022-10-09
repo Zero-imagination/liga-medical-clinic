@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="build-tools" />
+        <module name="migration" />
+        <module name="core-api" />
         <module name="core" />
-        <module name="common-utils" />
-        <module name="common-dto" />
-        <module name="common-services" />
+        <module name="utils" />
+        <module name="dto" />
       </profile>
     </annotationProcessing>
   </component>
