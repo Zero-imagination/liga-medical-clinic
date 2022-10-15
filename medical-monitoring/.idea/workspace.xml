@@ -5,14 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3f2bedb-96ee-4429-9273-f98aa696979b" name="Changes" comment="init">
-      <change beforePath="$PROJECT_DIR$/../common-module/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../common-module/common-module.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../common-module/dto/src/main/java/liga/medical/dto/MessageDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../common-module/dto/src/main/java/liga/medical/dto/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/liga/medical/medicalmonitoring/core/api/MessageRouterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/liga/medical/medicalmonitoring/core/api/MessageSenderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/liga/medical/medicalmonitoring/core/config/RabbitConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/liga/medical/medicalmonitoring/core/service/MessageRouterListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/liga/medical/medicalmonitoring/core/service/MessageRouterServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/liga/medical/medicalmonitoring/core/service/MessageSenderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../message-analyzer/core/src/main/java/liga/medical/messageanalyzer/core/api/MessageSenderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../message-analyzer/core/src/main/java/liga/medical/messageanalyzer/core/config/RabbitConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../message-analyzer/core/src/main/java/liga/medical/messageanalyzer/core/controller/MessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../message-analyzer/core/src/main/java/liga/medical/messageanalyzer/core/service/MessageSenderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common-module/dependency-management-bom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../common-module/dependency-management-bom/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core-api/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/core-api/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core-api/target/monitoring-core-api-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core-api/target/monitoring-core-api-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/checkstyle-result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/checkstyle-result.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/classes/META-INF/build-info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/classes/META-INF/build-info.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/monitoring-core-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/monitoring-core-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/surefire-reports/TEST-liga.medical.medicalmonitoring.core.MedicalMonitoringApplicationTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/surefire-reports/TEST-liga.medical.medicalmonitoring.core.MedicalMonitoringApplicationTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/target/surefire-reports/liga.medical.medicalmonitoring.core.MedicalMonitoringApplicationTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/core/target/surefire-reports/liga.medical.medicalmonitoring.core.MedicalMonitoringApplicationTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-management-bom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-management-bom/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-management-bom/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-management-bom/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/dto/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dto/target/monitoring-dto-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/dto/target/monitoring-dto-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/utils/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/target/monitoring-utils-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/utils/target/monitoring-utils-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../message-analyzer/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../message-analyzer/core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../message-analyzer/core/src/main/java/com/example/core/CoreApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../message-analyzer/core/src/main/java/liga/medical/messageanalyzer/core/CoreApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../message-analyzer/core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../message-analyzer/core/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../message-analyzer/core/src/test/java/com/example/core/CoreApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../message-analyzer/core/src/test/java/liga/medical/messageanalyzer/core/CoreApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../message-analyzer/dependency-management-bom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../message-analyzer/dependency-management-bom/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,16 +82,26 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Education/Java_kurs/Digital_League/projects/liga-medical-clinic/common-module",
+    "last_opened_file_path": "D:/Education/Java_kurs/Digital_League/projects/liga-medical-clinic/medical-monitoring",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "4b3ec0c445ec7af261e030a77282272f"
   }
 }]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="MedicalMonitoringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="monitoring-core" />
@@ -85,6 +142,7 @@
       <updated>1664980869604</updated>
       <workItem from="1664980872932" duration="824000" />
       <workItem from="1664981736382" duration="151000" />
+      <workItem from="1665768427679" duration="4520000" />
     </task>
     <task id="LOCAL-00004" summary="init">
       <created>1664980928454</created>

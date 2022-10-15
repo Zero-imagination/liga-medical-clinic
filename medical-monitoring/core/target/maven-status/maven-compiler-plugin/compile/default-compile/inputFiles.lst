@@ -1,1 +1,7 @@
-D:\Education\Java_kurs\Digital_League\projects\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\MedicalMonitoringApplication.java
+D:\Education\Java_kurs\Digital_League\projects\liga-medical-clinic\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\api\MessageRouterService.java
+D:\Education\Java_kurs\Digital_League\projects\liga-medical-clinic\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\api\MessageSenderService.java
+D:\Education\Java_kurs\Digital_League\projects\liga-medical-clinic\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\MedicalMonitoringApplication.java
+D:\Education\Java_kurs\Digital_League\projects\liga-medical-clinic\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\config\RabbitConfig.java
+D:\Education\Java_kurs\Digital_League\projects\liga-medical-clinic\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\service\MessageSenderServiceImpl.java
+D:\Education\Java_kurs\Digital_League\projects\liga-medical-clinic\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\service\MessageRouterServiceImpl.java
+D:\Education\Java_kurs\Digital_League\projects\liga-medical-clinic\medical-monitoring\core\src\main\java\liga\medical\medicalmonitoring\core\service\MessageRouterListener.java
