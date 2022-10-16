@@ -1,6 +1,5 @@
 package liga.medical.medicalmonitoring.core.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import liga.medical.medicalmonitoring.core.api.MessageRouterService;
 import liga.medical.medicalmonitoring.core.api.MessageSenderService;
@@ -34,9 +33,11 @@ public class MessageRouterServiceImpl implements MessageRouterService {
                 case ERROR:
                     messageSenderService.sendMessage(messageDto, RabbitConfig.ERROR_QUEUE_NAME);
                     break;
+                default:
+                    System.out.println("Cannot send message ["+messageDto+"] to any queue");
             }
-        } catch (JsonProcessingException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            messageSenderService.sendError(e.getMessage());
         }
     }
 }

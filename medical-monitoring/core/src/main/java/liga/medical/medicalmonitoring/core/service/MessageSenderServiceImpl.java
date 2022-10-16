@@ -7,6 +7,7 @@ import liga.medical.medicalmonitoring.core.api.MessageSenderService;
 import liga.medical.medicalmonitoring.core.config.RabbitConfig;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
+import java.util.Objects;
 
 @Service
 public class MessageSenderServiceImpl implements MessageSenderService {
@@ -28,7 +29,10 @@ public class MessageSenderServiceImpl implements MessageSenderService {
 
     @Override
     public void sendError(String message) {
-        amqpTemplate.convertAndSend(RabbitConfig.ERROR_QUEUE_NAME, message);
-        System.out.println("Сообщение об ошибке" + message + " добавлено в очередь " + RabbitConfig.ERROR_QUEUE_NAME);
+        if (Objects.nonNull(message)){
+            amqpTemplate.convertAndSend(RabbitConfig.ERROR_QUEUE_NAME, message);
+        } else {
+            amqpTemplate.convertAndSend(RabbitConfig.ERROR_QUEUE_NAME, "message is null");
+        }
     }
 }
