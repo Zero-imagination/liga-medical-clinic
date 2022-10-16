@@ -5,4 +5,5 @@ liga\medical\medicalmonitoring\core\service\MessageRouterServiceImpl.class
 liga\medical\medicalmonitoring\core\service\MessageSenderServiceImpl.class
 liga\medical\medicalmonitoring\core\api\MessageRouterService.class
 liga\medical\medicalmonitoring\core\MedicalMonitoringApplication.class
+liga\medical\medicalmonitoring\core\model\MessageQueueNames.class
 liga\medical\medicalmonitoring\core\api\MessageSenderService.class
