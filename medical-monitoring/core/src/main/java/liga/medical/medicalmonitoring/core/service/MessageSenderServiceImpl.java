@@ -29,7 +29,7 @@ public class MessageSenderServiceImpl implements MessageSenderService {
 
     @Override
     public void sendError(String message) {
-        if (Objects.nonNull(message)){
+        if (Objects.nonNull(message)) {
             amqpTemplate.convertAndSend(RabbitConfig.ERROR_QUEUE_NAME, message);
         } else {
             amqpTemplate.convertAndSend(RabbitConfig.ERROR_QUEUE_NAME, "message is null");

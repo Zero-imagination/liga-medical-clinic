@@ -34,7 +34,7 @@ public class MessageRouterServiceImpl implements MessageRouterService {
                     messageSenderService.sendMessage(messageDto, RabbitConfig.ERROR_QUEUE_NAME);
                     break;
                 default:
-                    System.out.println("Cannot send message ["+messageDto+"] to any queue");
+                    System.out.println("Cannot send message [" + messageDto + "] to any queue");
             }
         } catch (Exception e) {
             messageSenderService.sendError(e.getMessage());
