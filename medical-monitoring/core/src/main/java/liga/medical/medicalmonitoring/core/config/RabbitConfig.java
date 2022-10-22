@@ -18,7 +18,7 @@ public class RabbitConfig {
     public static final String ERROR_QUEUE_NAME = "error_queue";
 
     public static final String ROUTER_QUEUE_NAME = "common_monitoring";
-    private static final String HOST = "localhost";
+    private static final String HOST = "rabbithost";
 
     @Bean
     public ConnectionFactory connectionFactory() {
