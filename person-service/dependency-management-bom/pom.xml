@@ -14,8 +14,11 @@
     <packaging>pom</packaging>
 
     <properties>
-        <!--        Проектные настройки\версии-->
-        <mybatis.version>3.5.5</mybatis.version>
+        <!--        myBatis-->
+        <mybatis.version>2.2.2</mybatis.version>
+        <!--        liquibase-->
+        <liquibase.version>4.8.0</liquibase.version>
+        <liquibase.plugin.version>4.8.0</liquibase.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -33,7 +36,11 @@
                 <version>${springboot.test.version}</version>
                 <scope>test</scope>
             </dependency>
-
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>liga.medical</groupId>
@@ -52,17 +59,22 @@
             </dependency>
             <dependency>
                 <groupId>liga.medical</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>liga.medical</groupId>
                 <artifactId>person-service-core-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>liga.medical</groupId>
-                <artifactId>person-service-dto</artifactId>
+                <artifactId>person-service-utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>liga.medical</groupId>
-                <artifactId>person-service-utils</artifactId>
+                <artifactId>person-service-dto</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -76,11 +88,10 @@
                 <version>${project.version}</version>
             </dependency>
 
-
             <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>${liquibase.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
