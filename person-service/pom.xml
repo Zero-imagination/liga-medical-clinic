@@ -21,6 +21,7 @@
         <module>dto</module>
         <module>core-api</module>
         <module>migration</module>
+        <module>core</module>
     </modules>
 
     <dependencies>
