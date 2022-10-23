@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>dependency-management-bom</artifactId>
         <groupId>liga.medical</groupId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../dependency-management-bom/pom.xml</relativePath>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <packaging>jar</packaging>
     <artifactId>person-service-core</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -24,6 +26,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,6 +43,10 @@
         </dependency>
         <dependency>
             <groupId>liga.medical</groupId>
+            <artifactId>common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>liga.medical</groupId>
             <artifactId>person-service-core-api</artifactId>
         </dependency>
         <dependency>
@@ -47,11 +57,6 @@
             <groupId>liga.medical</groupId>
             <artifactId>person-service-dto</artifactId>
         </dependency>
-        <dependency>
-            <groupId>liga.medical</groupId>
-            <artifactId>person-service-migration</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -77,19 +82,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <!-- Build an executable JAR -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>liga.medical.personservice.core.PersonServiceApplication</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
             </plugin>
         </plugins>
         <resources>

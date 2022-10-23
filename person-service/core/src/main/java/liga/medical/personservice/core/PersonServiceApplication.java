@@ -17,6 +17,7 @@ public class PersonServiceApplication {
      *
      * @param args the input arguments
      */
+
     public static void main(String[] args) {
         SpringApplication.run(PersonServiceApplication.class);
     }
