@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8093
   servlet:
     context-path: /
 
@@ -12,7 +12,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       maximum-pool-size: 10
-      # ????????? ????-???? ?????????? = 2???
+      #       Настройка тайм-аута соединения = 2мин
       connection-timeout: 120000
       max-lifetime: 120000
       minimum-idle: 4

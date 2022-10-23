@@ -11,8 +11,8 @@
         <relativePath>../dependency-management-bom/pom.xml</relativePath>
     </parent>
 
-    <packaging>jar</packaging>
     <artifactId>person-service-utils</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -22,11 +22,6 @@
         <dependency>
             <groupId>liga.medical</groupId>
             <artifactId>person-service-dto</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
         </dependency>
     </dependencies>
 </project>
