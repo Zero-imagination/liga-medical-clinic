@@ -82,6 +82,11 @@
                 <artifactId>person-service-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>liga.medical</groupId>
+                <artifactId>person-service-migration</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.liquibase</groupId>
