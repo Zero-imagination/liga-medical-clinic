@@ -3,7 +3,7 @@ create table if not exists medical_card
     id            bigint not null unique primary key,
     client_status char,
     med_status    char,
-    registry_dt   date,
+    registry_dt   date not null,
     comment       text
 );
 
