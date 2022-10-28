@@ -17,7 +17,7 @@
         <!--        myBatis-->
         <mybatis.version>2.2.2</mybatis.version>
         <!--        liquibase-->
-        <liquibase.version>4.8.0</liquibase.version>
+        <liquibase.version>4.10.0</liquibase.version>
         <liquibase.plugin.version>4.8.0</liquibase.plugin.version>
     </properties>
 
