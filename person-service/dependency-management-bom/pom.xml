@@ -15,7 +15,8 @@
 
     <properties>
         <!--        myBatis-->
-        <mybatis.version>2.2.2</mybatis.version>
+        <mybatis.version>3.5.5</mybatis.version>
+        <mybatis.spring.boot.version>2.2.2</mybatis.spring.boot.version>
         <!--        liquibase-->
         <liquibase.version>4.10.0</liquibase.version>
         <liquibase.plugin.version>4.8.0</liquibase.plugin.version>
@@ -39,7 +40,7 @@
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
+                <version>${mybatis.spring.boot.version}</version>
             </dependency>
 
             <dependency>
@@ -92,6 +93,11 @@
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-core</artifactId>
                 <version>${liquibase.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
