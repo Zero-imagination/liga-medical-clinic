@@ -1,19 +1,34 @@
 package liga.medical.personservice.core.service;
 
+import liga.medical.personservice.api.repository.IRepository;
+import liga.medical.personservice.api.service.IService;
 import liga.medical.personservice.core.model.Contact;
+import liga.medical.personservice.core.repository.ContactMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface ContactService {
+@Service
+public class ContactService implements IService<Contact> {
 
-    Contact addContact(Contact contact);
+    private final IRepository<Contact> contactRepository;
 
-    void deleteContact(Contact id);
+    public ContactService(ContactMapper contactMapper) {
+        this.contactRepository = contactMapper;
+    }
 
-    Contact getByEmailContact(String name);
+    @Override
+    public List<Contact> getAll() {
+        return contactRepository.getAll();
+    }
 
-    Contact editContact(Contact contact);
+    @Override
+    public Contact getById(long id) {
+        return contactRepository.getById(id);
+    }
 
-    List<Contact> getAll();
-
+    @Override
+    public int insert(Contact contact) {
+        return contactRepository.insert(contact);
+    }
 }

@@ -1,20 +1,33 @@
 package liga.medical.personservice.core.service;
 
+import liga.medical.personservice.api.repository.IRepository;
+import liga.medical.personservice.api.service.IService;
 import liga.medical.personservice.core.model.PersonData;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface PersonDataService {
+@Service
+public class PersonDataService implements IService<PersonData> {
 
-    PersonData addPersonData(PersonData personData);
+    private final IRepository<PersonData> personDataRepository;
 
-    void deletePersonData(PersonData personData);
+    public PersonDataService(IRepository<PersonData> personDataRepository) {
+        this.personDataRepository = personDataRepository;
+    }
 
-    Optional<PersonData> getPersonDataById(Long id);
+    @Override
+    public List<PersonData> getAll() {
+        return personDataRepository.getAll();
+    }
 
-    PersonData editPersonData(PersonData personData);
+    @Override
+    public PersonData getById(long id) {
+        return personDataRepository.getById(id);
+    }
 
-    List<PersonData> getAll();
-
+    @Override
+    public int insert(PersonData personData) {
+        return personDataRepository.insert(personData);
+    }
 }

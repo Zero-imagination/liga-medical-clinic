@@ -1,29 +1,39 @@
 package liga.medical.personservice.core.controller;
 
+import liga.medical.personservice.api.service.IService;
 import liga.medical.personservice.core.model.MedicalCard;
-import liga.medical.personservice.core.service.MedicalCardService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/medical-card")
 public class MedicalCardController {
-    private final MedicalCardService medicalCardService;
 
-    public MedicalCardController(MedicalCardService medicalCardService) {
+    private final IService<MedicalCard> medicalCardService;
+
+    public MedicalCardController(IService<MedicalCard> medicalCardService) {
         this.medicalCardService = medicalCardService;
     }
 
-    @PostMapping
-    public MedicalCard add(@RequestBody MedicalCard medicalCard) {
-        return medicalCardService.addMedicalCard(medicalCard);
+    @GetMapping
+    public List<MedicalCard> getAll() {
+        return medicalCardService.getAll();
     }
 
-    @GetMapping
-    public void get() {
-        medicalCardService.getAll();
+    @GetMapping("/{id}")
+    public MedicalCard getMedicalCardById(@PathVariable long id) {
+        return medicalCardService.getById(id);
     }
+
+    @PostMapping
+    public int insertMedicalCard(@RequestBody MedicalCard medicalCard) {
+        return medicalCardService.insert(medicalCard);
+    }
+
 }

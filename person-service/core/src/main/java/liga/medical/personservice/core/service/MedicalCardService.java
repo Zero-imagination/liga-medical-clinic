@@ -1,20 +1,33 @@
 package liga.medical.personservice.core.service;
 
+import liga.medical.personservice.api.repository.IRepository;
+import liga.medical.personservice.api.service.IService;
 import liga.medical.personservice.core.model.MedicalCard;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface MedicalCardService {
+@Service
+public class MedicalCardService implements IService<MedicalCard> {
 
-    MedicalCard addMedicalCard(MedicalCard medicalCard);
+    private final IRepository<MedicalCard> medicalCardRepository;
 
-    void deleteMedicalCard(MedicalCard medicalCard);
+    public MedicalCardService(IRepository<MedicalCard> medicalCardRepository) {
+        this.medicalCardRepository = medicalCardRepository;
+    }
 
-    Optional<MedicalCard> getMedicalCardById(Long id);
+    @Override
+    public List<MedicalCard> getAll() {
+        return medicalCardRepository.getAll();
+    }
 
-    MedicalCard editMedicalCard(MedicalCard medicalCard);
+    @Override
+    public MedicalCard getById(long id) {
+        return medicalCardRepository.getById(id);
+    }
 
-    List<MedicalCard> getAll();
-
+    @Override
+    public int insert(MedicalCard medicalCard) {
+        return medicalCardRepository.insert(medicalCard);
+    }
 }

@@ -1,20 +1,33 @@
 package liga.medical.personservice.core.service;
 
+import liga.medical.personservice.api.repository.IRepository;
+import liga.medical.personservice.api.service.IService;
 import liga.medical.personservice.core.model.Illness;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface IllnessService {
+@Service
+public class IllnessService implements IService<Illness> {
 
-    Illness addIllness(Illness illness);
+    private final IRepository<Illness> illnessRepository;
 
-    void deleteIllness(Illness illness);
+    public IllnessService(IRepository<Illness> illnessRepository) {
+        this.illnessRepository = illnessRepository;
+    }
 
-    Optional<Illness> getIllnessById(Long id);
+    @Override
+    public List<Illness> getAll() {
+        return illnessRepository.getAll();
+    }
 
-    Illness editIllness(Illness illness);
+    @Override
+    public Illness getById(long id) {
+        return illnessRepository.getById(id);
+    }
 
-    List<Illness> getAll();
-
+    @Override
+    public int insert(Illness illness) {
+        return illnessRepository.insert(illness);
+    }
 }

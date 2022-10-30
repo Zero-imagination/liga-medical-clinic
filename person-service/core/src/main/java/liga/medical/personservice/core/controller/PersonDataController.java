@@ -1,38 +1,39 @@
 package liga.medical.personservice.core.controller;
 
+import liga.medical.personservice.api.service.IService;
 import liga.medical.personservice.core.model.PersonData;
-import liga.medical.personservice.core.service.PersonDataService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping("/person-data")
 public class PersonDataController {
-    private final PersonDataService personDataService;
 
-    public PersonDataController(PersonDataService personDataService) {
+    private final IService<PersonData> personDataService;
+
+    public PersonDataController(IService<PersonData> personDataService) {
         this.personDataService = personDataService;
     }
 
     @GetMapping
-    public void get() {
-        personDataService.getAll();
+    public List<PersonData> getAllPersonData() {
+        return personDataService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<PersonData> getPersonDataById(@PathVariable long id) {
-        return personDataService.getPersonDataById(id);
+    public PersonData getPersonDataById(@PathVariable long id) {
+        return personDataService.getById(id);
     }
 
     @PostMapping
-    public PersonData add(@RequestBody PersonData personData) {
-        return personDataService.addPersonData(personData);
+    public Integer insertPersonData(@RequestBody PersonData personData) {
+        return personDataService.insert(personData);
     }
 
 }

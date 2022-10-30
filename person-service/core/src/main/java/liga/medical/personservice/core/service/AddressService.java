@@ -1,20 +1,33 @@
 package liga.medical.personservice.core.service;
 
+import liga.medical.personservice.api.repository.IRepository;
+import liga.medical.personservice.api.service.IService;
 import liga.medical.personservice.core.model.Address;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface AddressService {
+@Service
+public class AddressService implements IService<Address> {
 
-    Address addAddress(Address address);
+    private final IRepository<Address> addressRepository;
 
-    void deleteAddress(Address address);
+    public AddressService(IRepository<Address> addressRepository) {
+        this.addressRepository = addressRepository;
+    }
 
-    Optional<Address> getAddressById(Long id);
+    @Override
+    public List<Address> getAll() {
+        return addressRepository.getAll();
+    }
 
-    Address editAddress(Address address);
+    @Override
+    public Address getById(long id) {
+        return addressRepository.getById(id);
+    }
 
-    List<Address> getAll();
-
+    @Override
+    public int insert(Address address) {
+        return addressRepository.insert(address);
+    }
 }
