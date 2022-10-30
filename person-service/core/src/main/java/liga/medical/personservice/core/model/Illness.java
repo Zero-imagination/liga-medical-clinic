@@ -1,48 +1,20 @@
 package liga.medical.personservice.core.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-@Entity
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class Illness {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
-    private Long id;
+    private long id;
 
-    @Column(name = "type_id", nullable = false)
-    private Long typeId;
+    private long medicalCardId;
 
-    @Column(name = "heaviness", nullable = false)
+    private long typeId;
+
     private String heaviness;
 
-    @Column(name = "appearance_dttm", nullable = false)
     private java.sql.Timestamp appearanceDttm;
 
-    @Column(name = "recovery_dt", nullable = false)
     private java.sql.Date recoveryDt;
 
-    @ToString.Exclude
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "medical_card_id", nullable = false)
-    private MedicalCard medicalCard;
 }
