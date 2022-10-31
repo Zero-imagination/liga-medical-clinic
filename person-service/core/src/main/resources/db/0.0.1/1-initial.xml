@@ -24,9 +24,9 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
-            <column name="type_id" type="BIGINT"/>
-            <column name="heaviness" type="CHAR"/>
-            <column name="appearance_dttm" type="TIMESTAMP">
+            <column name="type_id" type="bigint"/>
+            <column name="heaviness" type="char"/>
+            <column name="appearance_dttm" type="timestamp">
                 <constraints nullable="false"/>
             </column>
             <column name="recovery_dt" type="DATE"/>
@@ -39,11 +39,11 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
-            <column name="phone_number" type="VARCHAR(32)">
+            <column name="phone_number" type="varchar(32)">
                 <constraints nullable="false"/>
             </column>
-            <column name="email" type="VARCHAR(128)"/>
-            <column name="profile_link" type="TEXT"/>
+            <column name="email" type="varchar(128)"/>
+            <column name="profile_link" type="text"/>
         </createTable>
 
         <createTable tableName="person_data">

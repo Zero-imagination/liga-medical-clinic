@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="4" author="pshenichnikov">
+        <comment>Добавление пользователей ADMIN и USER</comment>
+
+        <insert tableName="users" schemaName="medical">
+            <column name="login" value="admin"/>
+            <!-- password = root -->
+            <column name="password" value="$2a$10$1VEaCRuTx0bC0lJm0fFcpuepCU2LgqQObntiW3acWfNwdH2gMiAMG"/>
+        </insert>
+        <insert tableName="users_roles" schemaName="medical">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="1"/>
+        </insert>
+        <insert tableName="users_roles" schemaName="medical">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="2"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
