@@ -1,6 +1,6 @@
 package liga.medical.personservice.core.web;
 
-import liga.medical.personservice.core.web.api.UserValidator;
+import liga.medical.personservice.core.api.UserValidator;
 import liga.medical.personservice.core.model.User;
 import liga.medical.personservice.core.repository.UserMapper;
 import org.springframework.stereotype.Component;

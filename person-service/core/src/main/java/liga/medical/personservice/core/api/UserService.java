@@ -1,4 +1,4 @@
-package liga.medical.personservice.core.web.api;
+package liga.medical.personservice.core.api;
 
 import liga.medical.personservice.core.model.User;
 
