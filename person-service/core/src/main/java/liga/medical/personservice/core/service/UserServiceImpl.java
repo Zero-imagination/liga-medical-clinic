@@ -1,7 +1,7 @@
 package liga.medical.personservice.core.service;
 
 import liga.medical.personservice.core.repository.RolesUserMapper;
-import liga.medical.personservice.core.web.api.UserService;
+import liga.medical.personservice.core.api.UserService;
 import liga.medical.personservice.core.model.Role;
 import liga.medical.personservice.core.model.User;
 import liga.medical.personservice.core.repository.RoleMapper;

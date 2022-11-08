@@ -1,5 +1,6 @@
 package liga.medical.personservice.core.service;
 
+import liga.medical.personservice.core.annotations.Loggable;
 import liga.medical.personservice.core.repository.UserMapper;
 import liga.medical.personservice.core.security.SecurityUser;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.userMapper = userMapper;
     }
 
+    @Loggable
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if (!Objects.nonNull(userMapper.getUserByUsername(username))) {
