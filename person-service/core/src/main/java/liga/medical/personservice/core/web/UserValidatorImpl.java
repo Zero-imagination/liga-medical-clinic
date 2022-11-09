@@ -1,17 +1,17 @@
 package liga.medical.personservice.core.web;
 
-import liga.medical.personservice.core.api.UserValidator;
-import liga.medical.personservice.core.model.User;
-import liga.medical.personservice.core.repository.UserMapper;
+import liga.medical.personservice.core.repository.UserRepository;
+import liga.medical.personservice.core.service.api.UserValidator;
+import liga.medical.personservice.core.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserValidatorImpl implements UserValidator {
 
-    private final UserMapper userMapper;
+    private final UserRepository userRepository;
 
-    public UserValidatorImpl(UserMapper userMapper) {
-        this.userMapper = userMapper;
+    public UserValidatorImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class UserValidatorImpl implements UserValidator {
 
     @Override
     public boolean isUserExist(User user) {
-        return userMapper.getUserByUsername(user.getLogin()) != null;
+        return userRepository.findByLogin(user.getLogin()) != null;
     }
 }

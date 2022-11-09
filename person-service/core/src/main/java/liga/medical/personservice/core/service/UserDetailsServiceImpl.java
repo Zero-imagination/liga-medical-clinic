@@ -1,7 +1,8 @@
 package liga.medical.personservice.core.service;
 
 import liga.medical.personservice.core.annotations.Loggable;
-import liga.medical.personservice.core.repository.UserMapper;
+import liga.medical.personservice.core.entity.User;
+import liga.medical.personservice.core.repository.UserRepository;
 import liga.medical.personservice.core.security.SecurityUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,19 +14,20 @@ import java.util.Objects;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserMapper userMapper;
+    private final UserRepository userRepository;
 
-    public UserDetailsServiceImpl(UserMapper userMapper) {
-        this.userMapper = userMapper;
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Loggable
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if (!Objects.nonNull(userMapper.getUserByUsername(username))) {
+        User user = userRepository.findByLogin(username);
+        if (!Objects.nonNull(user)) {
             throw new UsernameNotFoundException("User not found");
         } else {
-            return SecurityUser.fromUser(userMapper.getUserByUsername(username));
+            return SecurityUser.fromUser(user);
         }
     }
 }

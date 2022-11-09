@@ -2,9 +2,9 @@ package liga.medical.personservice.core.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import liga.medical.personservice.core.model.User;
-import liga.medical.personservice.core.api.UserService;
-import liga.medical.personservice.core.api.UserValidator;
+import liga.medical.personservice.core.service.api.UserService;
+import liga.medical.personservice.core.service.api.UserValidator;
+import liga.medical.personservice.core.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

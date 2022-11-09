@@ -1,6 +1,6 @@
-package liga.medical.personservice.core.api;
+package liga.medical.personservice.core.service.api;
 
-import liga.medical.personservice.core.model.User;
+import liga.medical.personservice.core.entity.User;
 
 public interface UserValidator {
     boolean isUserValid(User user);

@@ -1,11 +1,14 @@
 package liga.medical.personservice.core.service;
 
-import liga.medical.personservice.core.repository.RolesUserMapper;
-import liga.medical.personservice.core.api.UserService;
-import liga.medical.personservice.core.model.Role;
-import liga.medical.personservice.core.model.User;
-import liga.medical.personservice.core.repository.RoleMapper;
-import liga.medical.personservice.core.repository.UserMapper;
+import liga.medical.personservice.core.entity.Role;
+import liga.medical.personservice.core.entity.User;
+import liga.medical.personservice.core.service.api.UserService;
+//import liga.medical.personservice.core.old.model.Role;
+//import liga.medical.personservice.core.old.model.User;
+//import liga.medical.personservice.core.old.repository.RoleMapper;
+//import liga.medical.personservice.core.old.repository.UserMapper;
+import liga.medical.personservice.core.repository.RoleRepository;
+import liga.medical.personservice.core.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,41 +18,33 @@ import java.util.Set;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserMapper userMapper;
+    private final UserRepository userRepository;
 
-    private final RoleMapper roleMapper;
-
-    private final RolesUserMapper rolesUserMapper;
+    private final RoleRepository roleRepository;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserServiceImpl(UserMapper userMapper, RoleMapper roleMapper, RolesUserMapper rolesUserMapper, BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.userMapper = userMapper;
-        this.roleMapper = roleMapper;
-        this.rolesUserMapper = rolesUserMapper;
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userMapper.save(user);
-        User userWithId = userMapper.getUserByUsername(user.getLogin());
-        setDefaultRole(userWithId);
-        for (Role role: userWithId.getRoles()) {
-            rolesUserMapper.save(userWithId.getId(), role.getId());
-        }
-
+        setDefaultRole(user);
+        userRepository.save(user);
     }
 
     @Override
     public User findByUsername(String login) {
-        return userMapper.getUserByUsername(login);
+        return userRepository.findByLogin(login);
     }
 
     private void setDefaultRole(User user) {
         Set<Role> roleSet = new HashSet<>();
-        Role role = roleMapper.findByName("ROLE_USER");
+        Role role = roleRepository.findRoleByName("ROLE_USER");
         roleSet.add(role);
         user.setRoles(roleSet);
     }
