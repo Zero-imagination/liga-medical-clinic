@@ -2,9 +2,9 @@ package liga.medical.medicalmonitoring.core.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import liga.medical.dto.MessageDto;
+import liga.medical.dto.RabbitMessageDto;
 import liga.medical.medicalmonitoring.core.api.MessageSenderService;
-import liga.medical.medicalmonitoring.core.config.RabbitConfig;
+import liga.medical.utils.QueueNames;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Service;
 import java.util.Objects;
@@ -21,8 +21,8 @@ public class MessageSenderServiceImpl implements MessageSenderService {
     }
 
     @Override
-    public void sendMessage(MessageDto messageDto, String queue) throws JsonProcessingException {
-        String messageStr = objectMapper.writeValueAsString(messageDto);
+    public void sendMessage(RabbitMessageDto rabbitMessageDto, String queue) throws JsonProcessingException {
+        String messageStr = objectMapper.writeValueAsString(rabbitMessageDto);
         amqpTemplate.convertAndSend(queue, messageStr);
         System.out.println("Сообщение " + messageStr + " добавлено в очередь " + queue);
     }
@@ -30,9 +30,9 @@ public class MessageSenderServiceImpl implements MessageSenderService {
     @Override
     public void sendError(String message) {
         if (Objects.nonNull(message)) {
-            amqpTemplate.convertAndSend(RabbitConfig.ERROR_QUEUE_NAME, message);
+            amqpTemplate.convertAndSend(QueueNames.ERROR_QUEUE_NAME, message);
         } else {
-            amqpTemplate.convertAndSend(RabbitConfig.ERROR_QUEUE_NAME, "message is null");
+            amqpTemplate.convertAndSend(QueueNames.ERROR_QUEUE_NAME, "Bad requests");
         }
     }
 }

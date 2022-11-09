@@ -40,6 +40,10 @@
         </dependency>
         <dependency>
             <groupId>liga.medical</groupId>
+            <artifactId>common-utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>liga.medical</groupId>
             <artifactId>monitoring-core-api</artifactId>
         </dependency>
         <dependency>
