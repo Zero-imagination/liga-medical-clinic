@@ -8,8 +8,8 @@
         <comment>Создание начальной структуры таблиц debug и exception</comment>
 
         <createTable tableName="debug">
-            <column name="uuid" autoIncrement="true" type="bigint">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
+            <column name="uuid" type="varchar(128)">
+                <constraints nullable="false" unique="true" />
             </column>
             <column name="system_type_id" type="bigint">
                 <constraints nullable="false"/>
@@ -18,8 +18,8 @@
         </createTable>
 
         <createTable tableName="exception">
-            <column name="uuid" autoIncrement="true" type="bigint">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
+            <column name="uuid"  type="varchar(128)">
+                <constraints nullable="false" unique="true" />
             </column>
             <column name="system_type_id" type="bigint">
                 <constraints nullable="false"/>

@@ -18,5 +18,9 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>liga.medical</groupId>
+            <artifactId>common-utils</artifactId>
+        </dependency>
     </dependencies>
 </project>

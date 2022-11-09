@@ -1,4 +1,4 @@
-package liga.medical.medicalmonitoring.core.service;
+package liga.medical.medicalmonitoring.core.listener;
 
 import liga.medical.medicalmonitoring.core.api.MessageRouterService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

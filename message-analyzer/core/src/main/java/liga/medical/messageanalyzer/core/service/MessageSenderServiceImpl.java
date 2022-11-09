@@ -1,6 +1,6 @@
 package liga.medical.messageanalyzer.core.service;
 
-import liga.medical.dto.MessageDto;
+import liga.medical.dto.RabbitMessageDto;
 import liga.medical.messageanalyzer.core.api.MessageSenderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,9 +18,9 @@ public class MessageSenderServiceImpl implements MessageSenderService {
     }
 
     @Override
-    public void sendMessage(MessageDto messageDto, String queue) throws JsonProcessingException {
-        String messageStr = objectMapper.writeValueAsString(messageDto);
+    public void sendMessage(RabbitMessageDto rabbitMessageDto, String queue) throws JsonProcessingException {
+        String messageStr = objectMapper.writeValueAsString(rabbitMessageDto);
         amqpTemplate.convertAndSend(queue, messageStr);
-        System.out.printf("Сообщение " + messageStr + " в очередь " + queue + " отправлено!%n");
+        //System.out.printf("Сообщение " + messageStr + " в очередь " + queue + " отправлено!%n");
     }
 }

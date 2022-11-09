@@ -2,6 +2,7 @@ package liga.medical.personservice.core.aop;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import liga.medical.dto.LogDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 @Aspect
 @Component
@@ -26,6 +28,11 @@ public class LoggingAdvice {
 
     @Pointcut(value = "execution(* liga.medical.personservice.core.controller.*.*(..))")
     public void generalPointCut() {
+
+    }
+
+    @Pointcut(value = "execution(* liga.medical.personservice.core.listener.*.*(..))")
+    public void listenerPointCut() {
 
     }
 
@@ -74,6 +81,31 @@ public class LoggingAdvice {
             e.printStackTrace();
         }
         log.info(className + " with method " + methodName + " response: " + mapper.writeValueAsString(obj));
+        return  obj;
+    }
+
+    @Around(value = "listenerPointCut()")
+    public Object listenerLogger(ProceedingJoinPoint pjp) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String logId = "db-logger";
+        String methodName = pjp.getSignature().getName();
+        String className = pjp.getTarget().getClass().getName();
+
+        log.info("\n[{}] invoked method {}() from class {}",
+                logId,  methodName, className);
+
+        Object obj = null;
+        try {
+            obj = pjp.proceed();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        LogDto logDto = new LogDto();
+        logDto.setUuid(UUID.randomUUID().toString());
+        logDto.setSystemTypeId(1L);
+        logDto.setMethodParams(mapper.writeValueAsString(obj));
+        //LogService.save(logDto) не получается подключить
+        log.info("\n"+className + " with method " + methodName + " response: " + mapper.writeValueAsString(obj));
         return  obj;
     }
 }

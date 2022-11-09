@@ -1,5 +1,6 @@
-package liga.medical.messageanalyzer.core.config;
+package liga.medical.personservice.core.config;
 
+import liga.medical.utils.QueueNames;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -11,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitConfig {
-    public static final String  QUEUE_NAME = "common_monitoring";
     private static final String HOST = "localhost";
 
     @Bean
@@ -29,9 +29,18 @@ public class RabbitConfig {
         return new RabbitTemplate(connectionFactory());
     }
 
-    @Bean
-    public Queue getQueue() {
-        return new Queue(QUEUE_NAME);
+    @Bean("dailyQueue")
+    public Queue getDailyQueue() {
+        return new Queue(QueueNames.DAILY_QUEUE_NAME);
     }
 
+    @Bean("alertQueue")
+    public Queue getAlertQueue() {
+        return new Queue(QueueNames.ALERT_QUEUE_NAME);
+    }
+
+    @Bean("errorQueue")
+    public Queue getErrorQueue() {
+        return new Queue(QueueNames.ERROR_QUEUE_NAME);
+    }
 }

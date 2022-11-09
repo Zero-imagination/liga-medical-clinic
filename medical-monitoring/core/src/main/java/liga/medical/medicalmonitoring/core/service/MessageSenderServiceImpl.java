@@ -24,7 +24,7 @@ public class MessageSenderServiceImpl implements MessageSenderService {
     public void sendMessage(RabbitMessageDto rabbitMessageDto, String queue) throws JsonProcessingException {
         String messageStr = objectMapper.writeValueAsString(rabbitMessageDto);
         amqpTemplate.convertAndSend(queue, messageStr);
-        System.out.println("Сообщение " + messageStr + " добавлено в очередь " + queue);
+        //System.out.println("Сообщение " + messageStr + " добавлено в очередь " + queue);
     }
 
     @Override
