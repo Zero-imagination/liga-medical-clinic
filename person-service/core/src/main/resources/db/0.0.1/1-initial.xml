@@ -100,5 +100,21 @@
                              foreignKeyName="fk_address_contact"/>
             </column>
         </createTable>
+
+        <createTable tableName="signals">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="person_data_id" type="bigint">
+                <constraints nullable="false" references="person_data(id)"
+                             foreignKeyName="fk_signals_person_data"/>
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
     </changeSet>
 </databaseChangeLog>
