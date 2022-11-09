@@ -101,7 +101,7 @@
             </column>
         </createTable>
 
-        <createTable tableName="signals">
+        <createTable tableName="signal">
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>

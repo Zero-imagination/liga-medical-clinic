@@ -1,7 +1,7 @@
 package liga.medical.personservice.core.security;
 
-import liga.medical.personservice.core.model.Role;
-import liga.medical.personservice.core.model.User;
+import liga.medical.personservice.core.entity.Role;
+import liga.medical.personservice.core.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -57,7 +57,7 @@ public class SecurityUser implements UserDetails {
     public static SecurityUser fromUser(User user) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
         for (Role role : user.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority(role.getRole()));
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return new SecurityUser(user.getLogin(), user.getPassword(), authorities);
     }
